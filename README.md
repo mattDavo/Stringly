@@ -20,6 +20,7 @@ textView.attributedText = content.format()
 ```
 to get the following result:
 
+<img src="https://raw.githubusercontent.com/mattDavo/Stringly/master/screenshot.png" width="300"/>
 
 ## TODO
 - [ ] More options for standard tags
@@ -28,4 +29,4 @@ to get the following result:
 - [ ] Cleaner implementation
 - [ ] Customizable link tag
 - [ ] Action tag => tap, hold, drag, etc. will execute certain code.
-- [ ] Ability to insert image (see https://stackoverflow.com/a/38479284)
+- [ ] Ability to insert images (see https://stackoverflow.com/a/38479284). And then optionally tap to enlarge?

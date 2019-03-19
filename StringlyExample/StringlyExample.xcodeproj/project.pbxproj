@@ -19,6 +19,7 @@
 		3461FA312240781E00E7F886 /* StringlyBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461FA302240781E00E7F886 /* StringlyBlob.swift */; };
 		3461FA332240783700E7F886 /* String+Stringly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461FA322240783700E7F886 /* String+Stringly.swift */; };
 		3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */; };
+		34ED05362240923F003C5316 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ED05352240923F003C5316 /* UIColor+HexString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3461FA302240781E00E7F886 /* StringlyBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringlyBlob.swift; sourceTree = "<group>"; };
 		3461FA322240783700E7F886 /* String+Stringly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Stringly.swift"; sourceTree = "<group>"; };
 		3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Tag.swift"; sourceTree = "<group>"; };
+		34ED05352240923F003C5316 /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				3461FA302240781E00E7F886 /* StringlyBlob.swift */,
 				3461FA2E224077FC00E7F886 /* Tag.swift */,
 				3461FA00223FA82C00E7F886 /* ViewController.swift */,
+				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
 			);
 			path = StringlyExample;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */,
 				3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */,
 				3461FA2D224077E000E7F886 /* String+Regex.swift in Sources */,
+				34ED05362240923F003C5316 /* UIColor+HexString.swift in Sources */,
 				3461FA312240781E00E7F886 /* StringlyBlob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

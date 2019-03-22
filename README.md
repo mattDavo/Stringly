@@ -25,8 +25,10 @@ to get the following result:
 ## TODO
 - [ ] More options for standard tags
 - [ ] Ability to create custom tags
+- [ ] Ability to add more attributes to the default tags
 - [ ] Ability to add more options to the default tags
 - [ ] Cleaner implementation
 - [ ] Customizable link tag
 - [ ] Action tag => tap, hold, drag, etc. will execute certain code.
+- [ ] More info tag, tapping on a link, will show a floating view next to it. Ability to customise default window, or provide custom UIView
 - [ ] Ability to insert images (see https://stackoverflow.com/a/38479284). And then optionally tap to enlarge?

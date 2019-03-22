@@ -10,24 +10,27 @@ import Foundation
 
 struct Tag: CustomStringConvertible {
     
+    private var stringly: Stringly
+    
     var tag: String
-    var attributes: [String: String]
+    var options: [String: String]
     
     var content: String
     
-    init(content: String) {
+    init(content: String, stringly: Stringly = Stringly.shared) {
         self.content = content
+        self.stringly = stringly
         
         let tagRegex = try? NSRegularExpression(pattern: "^/?(?<tag>\\w+)", options: .caseInsensitive)
         let fieldRegex = try? NSRegularExpression(pattern: "\\w+=\".*?\"", options: .caseInsensitive)
         let fieldKeyValueRegex = try? NSRegularExpression(pattern: "(?<key>\\w+)=\"(?<value>.*?)\"", options: .caseInsensitive)
         
         self.tag = content.firstMatch(withRegex: tagRegex!).lowercased()
-        self.attributes = [:]
+        self.options = [:]
         
         for i in content.matches(withRegex: fieldRegex!) {
             let kvps = i.matches(withRegex: fieldKeyValueRegex!, withKeys: ["key", "value"])
-            attributes[kvps["key"]!] = kvps["value"]!
+            options[kvps["key"]!] = kvps["value"]!
         }
     }
     
@@ -36,9 +39,15 @@ struct Tag: CustomStringConvertible {
     }
     
     func applyAttributes(to text: NSMutableAttributedString) {
-        if let tagType = DefaultTag(rawValue: tag) {
-            tagType.applyAttributes(to: text, withOptions: attributes)
+        if let defaultTag = DefaultTag(rawValue: tag) {
+            let tagType = defaultTag.getTagType(stringly: stringly)
+            tagType.applyAttributes(to: text, withOptions: options)
         }
-        
+        else if let tagType = stringly.customTags[tag] {
+            tagType.applyAttributes(to: text, withOptions: options)
+        }
+        else {
+            print("TODO: Write warnings")
+        }
     }
 }

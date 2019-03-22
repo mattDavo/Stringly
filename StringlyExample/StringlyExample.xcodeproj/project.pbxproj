@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3440F8F42244665B00285400 /* TagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F32244665B00285400 /* TagType.swift */; };
+		3440F8F62244667C00285400 /* TagAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F52244667C00285400 /* TagAttribute.swift */; };
+		3440F8F82244668F00285400 /* TagOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F72244668E00285400 /* TagOption.swift */; };
+		3440F8FA224466C400285400 /* TagAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F9224466C400285400 /* TagAttributes.swift */; };
+		3440F8FC224466E700285400 /* TagOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FB224466E700285400 /* TagOptions.swift */; };
+		3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */; };
+		3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */; };
+		3440F902224472EE00285400 /* DefaultTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F901224472EE00285400 /* DefaultTag.swift */; };
+		344E7ED12241036F005F12D4 /* Stringly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E7ED02241036F005F12D4 /* Stringly.swift */; };
 		3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F9FE223FA82C00E7F886 /* AppDelegate.swift */; };
 		3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461FA00223FA82C00E7F886 /* ViewController.swift */; };
 		3461FA04223FA82D00E7F886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461FA02223FA82D00E7F886 /* Main.storyboard */; };
@@ -40,6 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3440F8F32244665B00285400 /* TagType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagType.swift; sourceTree = "<group>"; };
+		3440F8F52244667C00285400 /* TagAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAttribute.swift; sourceTree = "<group>"; };
+		3440F8F72244668E00285400 /* TagOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOption.swift; sourceTree = "<group>"; };
+		3440F8F9224466C400285400 /* TagAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAttributes.swift; sourceTree = "<group>"; };
+		3440F8FB224466E700285400 /* TagOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptions.swift; sourceTree = "<group>"; };
+		3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attributes.swift"; sourceTree = "<group>"; };
+		3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+LosslessStringConvertible.swift"; sourceTree = "<group>"; };
+		3440F901224472EE00285400 /* DefaultTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTag.swift; sourceTree = "<group>"; };
+		344E7ED02241036F005F12D4 /* Stringly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringly.swift; sourceTree = "<group>"; };
 		3461F9FB223FA82C00E7F886 /* StringlyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringlyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3461F9FE223FA82C00E7F886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3461FA00223FA82C00E7F886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,10 +135,19 @@
 				3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */,
 				3461FA2C224077E000E7F886 /* String+Regex.swift */,
 				3461FA322240783700E7F886 /* String+Stringly.swift */,
+				344E7ED02241036F005F12D4 /* Stringly.swift */,
 				3461FA302240781E00E7F886 /* StringlyBlob.swift */,
 				3461FA2E224077FC00E7F886 /* Tag.swift */,
-				3461FA00223FA82C00E7F886 /* ViewController.swift */,
+				3440F8F52244667C00285400 /* TagAttribute.swift */,
+				3440F8F9224466C400285400 /* TagAttributes.swift */,
+				3440F8F72244668E00285400 /* TagOption.swift */,
+				3440F8FB224466E700285400 /* TagOptions.swift */,
+				3440F8F32244665B00285400 /* TagType.swift */,
 				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
+				3461FA00223FA82C00E7F886 /* ViewController.swift */,
+				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
+				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
+				3440F901224472EE00285400 /* DefaultTag.swift */,
 			);
 			path = StringlyExample;
 			sourceTree = "<group>";
@@ -275,12 +302,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				3461FA332240783700E7F886 /* String+Stringly.swift in Sources */,
+				3440F8F62244667C00285400 /* TagAttribute.swift in Sources */,
 				3461FA2F224077FC00E7F886 /* Tag.swift in Sources */,
+				3440F8F82244668F00285400 /* TagOption.swift in Sources */,
+				344E7ED12241036F005F12D4 /* Stringly.swift in Sources */,
+				3440F8FA224466C400285400 /* TagAttributes.swift in Sources */,
+				3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */,
+				3440F902224472EE00285400 /* DefaultTag.swift in Sources */,
 				3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */,
 				3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */,
+				3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */,
 				3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */,
+				3440F8FC224466E700285400 /* TagOptions.swift in Sources */,
 				3461FA2D224077E000E7F886 /* String+Regex.swift in Sources */,
 				34ED05362240923F003C5316 /* UIColor+HexString.swift in Sources */,
+				3440F8F42244665B00285400 /* TagType.swift in Sources */,
 				3461FA312240781E00E7F886 /* StringlyBlob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

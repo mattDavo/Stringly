@@ -25,6 +25,7 @@ to get the following result:
 ## TODO
 - [ ] More options for standard tags
 - [ ] Ability to create custom tags
+- [ ] Ability to add more attributes to the default tags
 - [ ] Ability to add more options to the default tags
 - [ ] Cleaner implementation
 - [ ] Customizable link tag

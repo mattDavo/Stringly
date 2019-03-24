@@ -1,0 +1,37 @@
+//
+//  TagTypeText.swift
+//  StringlyExample
+//
+//  Created by Matthew Davidson on 24/3/19.
+//  Copyright © 2019 MatthewDavidson. All rights reserved.
+//
+
+import Foundation
+
+public class TagTypeText: TagType {
+    
+    public let defaultAttributes: [TagAttribute] = []
+    
+    public var defaultOptions: [TagOption] = [
+        TagOptionFont(),
+        TagOptionFontSize(),
+        TagOptionTextColor(),
+        TagOptionTextHighlight(),
+        TagOptionFontStyle(),
+        TagOptionUnderlineStyle(),
+        TagOptionUnderlineColor(),
+        TagOptionStrikethroughStyle(),
+        TagOptionStrikethroughColor()
+    ]
+    
+    override init(tag: String, attributes: [TagAttribute], options: [TagOption]) {
+        super.init(tag: tag, attributes: attributes, options: options)
+        
+        self.attributes = defaultAttributes + self.attributes
+        self.options += defaultOptions.reduce([String: TagOption](), { (options, option) -> [String: TagOption] in
+            var options = options
+            options[option.key] = option
+            return options
+        })
+    }
+}

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 struct Tag: CustomStringConvertible {
     
@@ -22,8 +23,8 @@ struct Tag: CustomStringConvertible {
         self.stringly = stringly
         
         let tagRegex = try? NSRegularExpression(pattern: "^/?(?<tag>\\w+)", options: .caseInsensitive)
-        let fieldRegex = try? NSRegularExpression(pattern: "\\w+=\".*?\"", options: .caseInsensitive)
-        let fieldKeyValueRegex = try? NSRegularExpression(pattern: "(?<key>\\w+)=\"(?<value>.*?)\"", options: .caseInsensitive)
+        let fieldRegex = try? NSRegularExpression(pattern: "\\S+=\".*?\"", options: .caseInsensitive)
+        let fieldKeyValueRegex = try? NSRegularExpression(pattern: "(?<key>\\S+)=\"(?<value>.*?)\"", options: .caseInsensitive)
         
         self.tag = content.firstMatch(withRegex: tagRegex!).lowercased()
         self.options = [:]
@@ -39,15 +40,11 @@ struct Tag: CustomStringConvertible {
     }
     
     func applyAttributes(to text: NSMutableAttributedString) {
-        if let defaultTag = DefaultTag(rawValue: tag) {
-            let tagType = defaultTag.getTagType(stringly: stringly)
-            tagType.applyAttributes(to: text, withOptions: options)
-        }
-        else if let tagType = stringly.customTags[tag] {
-            tagType.applyAttributes(to: text, withOptions: options)
+        if let tagType = stringly.getTagType(withTag: tag) {
+            tagType.applyStyle(to: text, withOptions: options)
         }
         else {
-            print("TODO: Write warnings")
+            os_log(.error, "Error: There is no TagType defined in Stringly with the tag '%s'. Cannot correctly apply style to text '%s'", tag, text)
         }
     }
 }

@@ -16,6 +16,9 @@
 		3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */; };
 		3440F902224472EE00285400 /* DefaultTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F901224472EE00285400 /* DefaultTag.swift */; };
 		344E7ED12241036F005F12D4 /* Stringly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E7ED02241036F005F12D4 /* Stringly.swift */; };
+		344ECE5F22472AB600C44E6A /* Dictionary+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */; };
+		344ECE6122472B3200C44E6A /* TagTypeHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ECE6022472B3200C44E6A /* TagTypeHeading.swift */; };
+		344ECE6322472B4900C44E6A /* TagTypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ECE6222472B4900C44E6A /* TagTypeText.swift */; };
 		3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F9FE223FA82C00E7F886 /* AppDelegate.swift */; };
 		3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461FA00223FA82C00E7F886 /* ViewController.swift */; };
 		3461FA04223FA82D00E7F886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461FA02223FA82D00E7F886 /* Main.storyboard */; };
@@ -58,6 +61,9 @@
 		3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+LosslessStringConvertible.swift"; sourceTree = "<group>"; };
 		3440F901224472EE00285400 /* DefaultTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTag.swift; sourceTree = "<group>"; };
 		344E7ED02241036F005F12D4 /* Stringly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringly.swift; sourceTree = "<group>"; };
+		344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operators.swift"; sourceTree = "<group>"; };
+		344ECE6022472B3200C44E6A /* TagTypeHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTypeHeading.swift; sourceTree = "<group>"; };
+		344ECE6222472B4900C44E6A /* TagTypeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTypeText.swift; sourceTree = "<group>"; };
 		3461F9FB223FA82C00E7F886 /* StringlyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringlyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3461F9FE223FA82C00E7F886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3461FA00223FA82C00E7F886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		344ECE6422472B6100C44E6A /* TagTypes */ = {
+			isa = PBXGroup;
+			children = (
+				344ECE6022472B3200C44E6A /* TagTypeHeading.swift */,
+				344ECE6222472B4900C44E6A /* TagTypeText.swift */,
+			);
+			path = TagTypes;
+			sourceTree = "<group>";
+		};
 		3461F9F2223FA82C00E7F886 = {
 			isa = PBXGroup;
 			children = (
@@ -129,9 +144,13 @@
 			children = (
 				3461F9FE223FA82C00E7F886 /* AppDelegate.swift */,
 				3461FA05223FA82E00E7F886 /* Assets.xcassets */,
+				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
+				3440F901224472EE00285400 /* DefaultTag.swift */,
+				344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */,
 				3461FA0A223FA82E00E7F886 /* Info.plist */,
 				3461FA07223FA82E00E7F886 /* LaunchScreen.storyboard */,
 				3461FA02223FA82D00E7F886 /* Main.storyboard */,
+				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
 				3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */,
 				3461FA2C224077E000E7F886 /* String+Regex.swift */,
 				3461FA322240783700E7F886 /* String+Stringly.swift */,
@@ -143,11 +162,9 @@
 				3440F8F72244668E00285400 /* TagOption.swift */,
 				3440F8FB224466E700285400 /* TagOptions.swift */,
 				3440F8F32244665B00285400 /* TagType.swift */,
+				344ECE6422472B6100C44E6A /* TagTypes */,
 				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
 				3461FA00223FA82C00E7F886 /* ViewController.swift */,
-				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
-				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
-				3440F901224472EE00285400 /* DefaultTag.swift */,
 			);
 			path = StringlyExample;
 			sourceTree = "<group>";
@@ -308,16 +325,19 @@
 				344E7ED12241036F005F12D4 /* Stringly.swift in Sources */,
 				3440F8FA224466C400285400 /* TagAttributes.swift in Sources */,
 				3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */,
+				344ECE5F22472AB600C44E6A /* Dictionary+Operators.swift in Sources */,
 				3440F902224472EE00285400 /* DefaultTag.swift in Sources */,
 				3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */,
 				3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */,
 				3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */,
 				3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */,
 				3440F8FC224466E700285400 /* TagOptions.swift in Sources */,
+				344ECE6122472B3200C44E6A /* TagTypeHeading.swift in Sources */,
 				3461FA2D224077E000E7F886 /* String+Regex.swift in Sources */,
 				34ED05362240923F003C5316 /* UIColor+HexString.swift in Sources */,
 				3440F8F42244665B00285400 /* TagType.swift in Sources */,
 				3461FA312240781E00E7F886 /* StringlyBlob.swift in Sources */,
+				344ECE6322472B4900C44E6A /* TagTypeText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

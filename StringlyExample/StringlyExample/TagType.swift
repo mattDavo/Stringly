@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 public class TagType {
     
@@ -32,12 +33,12 @@ public class TagType {
     
     public func addOption(_ option: TagOption) {
         if options.keys.contains(option.key) {
-            print("Warning: Already have an option with that key, overriding...")
+            os_log(.error, "Warning: Already have an option with key '%s', overriding...", option.key)
         }
         options[option.key] = option
     }
     
-    public func applyAttributes(to text: NSMutableAttributedString, withOptions options: [String: String]) {
+    public func applyStyle(to text: NSMutableAttributedString, withOptions options: [String: String]) {
         // Apply standard attributes
         for attribute in attributes {
             attribute.applyAttribute(to: text)
@@ -49,8 +50,12 @@ public class TagType {
                 option.applyOption(to: text, withValue: value)
             }
             else {
-                print("Warning: There are no options for tag '\(tag)' with key '\(key)'.")
+                os_log(.error, "Warning: There are no options for tag '%s' with key '%s'.", tag, key)
             }
         }
     }
 }
+
+
+
+

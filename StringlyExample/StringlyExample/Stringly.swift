@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public struct DefaultTags {
+    var t: TagType
     var h1: TagType
     var h2: TagType
     var h3: TagType
@@ -21,6 +22,8 @@ public struct DefaultTags {
     var u: TagType
     var i: TagType
     var img: TagType
+    
+    
 }
 
 public class Stringly {
@@ -32,21 +35,51 @@ public class Stringly {
      */
     public static let shared = Stringly()
     
-    // This needs to be implemented
-    // Could potentially create TagType sub classes that have default attributes and options, to make this more concise.
     public let defaultTags = DefaultTags(
-        h1: TagType(tag: "h1", attributes: [TagAttributeFontSize(fontSize: 30)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h2: TagType(tag: "h2", attributes: [TagAttributeFontSize(fontSize: 27)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h3: TagType(tag: "h3", attributes: [TagAttributeFontSize(fontSize: 24)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h4: TagType(tag: "h4", attributes: [TagAttributeFontSize(fontSize: 21)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h5: TagType(tag: "h5", attributes: [TagAttributeFontSize(fontSize: 18)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h6: TagType(tag: "h6", attributes: [TagAttributeFontSize(fontSize: 16)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        h7: TagType(tag: "h7", attributes: [TagAttributeFontSize(fontSize: 14)], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        b: TagType(tag: "b", attributes: [TagAttributeBold()], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        u: TagType(tag: "u", attributes: [TagAttributeUnderline()], options: [TagOptionFontSize(), TagOptionTextColor()]),
-        i: TagType(tag: "i", attributes: [TagAttributeItalic()], options: [TagOptionFontSize(), TagOptionTextColor()]),
+        t: TagTypeText(tag: "t", attributes: [], options: []),
+        h1: TagTypeHeading(tag: "h1", fontSize: 30),
+        h2: TagTypeHeading(tag: "h1", fontSize: 27),
+        h3: TagTypeHeading(tag: "h1", fontSize: 24),
+        h4: TagTypeHeading(tag: "h1", fontSize: 21),
+        h5: TagTypeHeading(tag: "h1", fontSize: 18),
+        h6: TagTypeHeading(tag: "h1", fontSize: 16),
+        h7: TagTypeHeading(tag: "h1", fontSize: 14),
+        b: TagTypeText(tag: "b", attributes: [TagAttributeBold()], options: []),
+        u: TagTypeText(tag: "u", attributes: [TagAttributeUnderline()], options: []),
+        i: TagTypeText(tag: "i", attributes: [TagAttributeItalic()], options: []),
         img: TagType(tag: "img", attributes: [], options: [])
     )
+    
+    func getTagType(withTag tag: String) -> TagType? {
+        switch tag {
+        case "t":
+            return self.defaultTags.t
+        case "h1":
+            return self.defaultTags.h1
+        case "h2":
+            return self.defaultTags.h2
+        case "h3":
+            return self.defaultTags.h3
+        case "h4":
+            return self.defaultTags.h4
+        case "h5":
+            return self.defaultTags.h5
+        case "h6":
+            return self.defaultTags.h6
+        case "h7":
+            return self.defaultTags.h7
+        case "b":
+            return self.defaultTags.b
+        case "u":
+            return self.defaultTags.u
+        case "i":
+            return self.defaultTags.i
+        case "img":
+            return self.defaultTags.img
+        default:
+            return customTags[tag]
+        }
+    }
     
     private var _customTags = [String: TagType]()
     
@@ -61,7 +94,7 @@ public class Stringly {
         _customTags[tag.tag] = tag
     }
     
-    func format(text: String) -> NSAttributedString {
+    public func format(text: String) -> NSAttributedString {
         var i = 0
         let chars = Array(text)
         

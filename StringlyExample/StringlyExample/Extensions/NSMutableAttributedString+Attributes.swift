@@ -11,6 +11,9 @@ import Foundation
 extension NSMutableAttributedString {
     
     func fullRangeAttributes() -> [NSAttributedString.Key: Any] {
+        if self.string.count == 0 {
+            return [:]
+        }
         return self.attributes(at: 0, effectiveRange: nil)
     }
 }

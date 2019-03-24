@@ -21,9 +21,8 @@ public struct DefaultTags {
     var b: TagType
     var u: TagType
     var i: TagType
+    var r: TagType
     var img: TagType
-    
-    
 }
 
 public class Stringly {
@@ -47,7 +46,8 @@ public class Stringly {
         b: TagTypeText(tag: "b", attributes: [TagAttributeBold()], options: []),
         u: TagTypeText(tag: "u", attributes: [TagAttributeUnderline()], options: []),
         i: TagTypeText(tag: "i", attributes: [TagAttributeItalic()], options: []),
-        img: TagType(tag: "img", attributes: [], options: [])
+        r: TagType(tag: "r", attributes: [TagAttributeRedacted()], options: [TagOptionRedactColor()]),
+        img: TagType(tag: "img", attributes: [], options: [TagOptionImageSource()])
     )
     
     func getTagType(withTag tag: String) -> TagType? {
@@ -74,6 +74,8 @@ public class Stringly {
             return self.defaultTags.u
         case "i":
             return self.defaultTags.i
+        case "r":
+            return self.defaultTags.r
         case "img":
             return self.defaultTags.img
         default:
@@ -122,7 +124,7 @@ public class Stringly {
                 let tag = Tag(content: String(chars[i+1..<tagEnd]), stringly: self)
                 
                 // Write the stringly blob
-                if blob.count > 0 {
+                if blob.count > 0 || currentTags.count > 0 {
                     blobs.append(StringlyBlob(text: blob, tags: currentTags))
                     blob = ""
                 }
@@ -131,9 +133,13 @@ public class Stringly {
                 if tagEnd < slash {
                     currentTags.append(tag)
                 }
-                    // If it's a closing tag, remove it from the stack
+                // If it's a closing tag, remove it from the stack
                 else if slash == i + 1 {
                     currentTags.removeLast()
+                }
+                    // It's a open/closed tag, e.g. <img src="me"/>, or potentially invalid xml :(
+                else {
+                    blobs.append(StringlyBlob(text: blob, tags: currentTags + [tag]))
                 }
                 
                 i = tagEnd + 1
@@ -144,7 +150,7 @@ public class Stringly {
             }
         }
         
-        if blobs.count > 0 {
+        if currentTags.count > 0 {
             print("WARNING: Invalid XML")
         }
         

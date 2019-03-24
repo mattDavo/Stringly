@@ -75,3 +75,13 @@ class TagAttributeUnderline: TagAttribute {
         
     }
 }
+
+public class TagAttributeRedacted: TagAttribute {
+    
+    public var defaultColor = UIColor.black
+    
+    public func applyAttribute(to text: NSMutableAttributedString) {
+        text.addAttribute(.backgroundColor, value: defaultColor, range: text.string.range)
+        text.addAttribute(.foregroundColor, value: defaultColor, range: text.string.range)
+    }
+}

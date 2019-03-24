@@ -200,3 +200,40 @@ class TagOptionStrikethroughColor: TagOption {
         }
     }
 }
+
+class TagOptionRedactColor: TagOption {
+    
+    var key = "color"
+    
+    func applyOption(to text: NSMutableAttributedString, withValue value: String) {
+        if let color = UIColor.fromHexString(value) {
+            text.addAttribute(.backgroundColor, value: color, range: text.string.range)
+            text.addAttribute(.foregroundColor, value: color, range: text.string.range)
+        }
+        else {
+            os_log(.error, "Failed to apply option '%s' to text '%s', because value '%s' is not a valid hex color. Acceptable color value formats: {'hhhhhh', 'hhhhhhhh', '#hhhhhh', '#hhhhhhhh'}, where h is a hex character.", key, text.string, value)
+        }
+    }
+}
+
+class TagOptionImageSource: TagOption {
+    
+    var key = "src"
+    
+    func applyOption(to text: NSMutableAttributedString, withValue value: String) {
+        // Courtesy of https://stackoverflow.com/a/38479284
+        if let image = UIImage(named: "me") {
+            let textAttachment = NSTextAttachment()
+            textAttachment.image = image
+            
+            let oldWidth = textAttachment.image!.size.width;
+            
+//            let scaleFactor = oldWidth / (textView.frame.size.width - 10) //for the padding inside the textView
+            let image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: 1, orientation: .up)
+            textAttachment.image = image
+            let attrStringWithImage = NSAttributedString(attachment: textAttachment)
+            text.append(attrStringWithImage)
+        }
+        
+    }
+}

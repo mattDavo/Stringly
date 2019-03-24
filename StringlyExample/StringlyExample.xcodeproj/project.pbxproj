@@ -14,7 +14,6 @@
 		3440F8FC224466E700285400 /* TagOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FB224466E700285400 /* TagOptions.swift */; };
 		3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */; };
 		3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */; };
-		3440F902224472EE00285400 /* DefaultTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F901224472EE00285400 /* DefaultTag.swift */; };
 		344E7ED12241036F005F12D4 /* Stringly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E7ED02241036F005F12D4 /* Stringly.swift */; };
 		344ECE5F22472AB600C44E6A /* Dictionary+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */; };
 		344ECE6122472B3200C44E6A /* TagTypeHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ECE6022472B3200C44E6A /* TagTypeHeading.swift */; };
@@ -59,7 +58,6 @@
 		3440F8FB224466E700285400 /* TagOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptions.swift; sourceTree = "<group>"; };
 		3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+LosslessStringConvertible.swift"; sourceTree = "<group>"; };
-		3440F901224472EE00285400 /* DefaultTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTag.swift; sourceTree = "<group>"; };
 		344E7ED02241036F005F12D4 /* Stringly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringly.swift; sourceTree = "<group>"; };
 		344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operators.swift"; sourceTree = "<group>"; };
 		344ECE6022472B3200C44E6A /* TagTypeHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTypeHeading.swift; sourceTree = "<group>"; };
@@ -144,16 +142,11 @@
 			children = (
 				3461F9FE223FA82C00E7F886 /* AppDelegate.swift */,
 				3461FA05223FA82E00E7F886 /* Assets.xcassets */,
-				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
-				3440F901224472EE00285400 /* DefaultTag.swift */,
-				344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */,
+				34F03092224784F50030E71C /* Extensions */,
 				3461FA0A223FA82E00E7F886 /* Info.plist */,
 				3461FA07223FA82E00E7F886 /* LaunchScreen.storyboard */,
 				3461FA02223FA82D00E7F886 /* Main.storyboard */,
-				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
 				3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */,
-				3461FA2C224077E000E7F886 /* String+Regex.swift */,
-				3461FA322240783700E7F886 /* String+Stringly.swift */,
 				344E7ED02241036F005F12D4 /* Stringly.swift */,
 				3461FA302240781E00E7F886 /* StringlyBlob.swift */,
 				3461FA2E224077FC00E7F886 /* Tag.swift */,
@@ -163,7 +156,6 @@
 				3440F8FB224466E700285400 /* TagOptions.swift */,
 				3440F8F32244665B00285400 /* TagType.swift */,
 				344ECE6422472B6100C44E6A /* TagTypes */,
-				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
 				3461FA00223FA82C00E7F886 /* ViewController.swift */,
 			);
 			path = StringlyExample;
@@ -185,6 +177,19 @@
 				3461FA20223FA82E00E7F886 /* Info.plist */,
 			);
 			path = StringlyExampleUITests;
+			sourceTree = "<group>";
+		};
+		34F03092224784F50030E71C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
+				344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */,
+				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
+				3461FA2C224077E000E7F886 /* String+Regex.swift */,
+				3461FA322240783700E7F886 /* String+Stringly.swift */,
+				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +331,6 @@
 				3440F8FA224466C400285400 /* TagAttributes.swift in Sources */,
 				3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */,
 				344ECE5F22472AB600C44E6A /* Dictionary+Operators.swift in Sources */,
-				3440F902224472EE00285400 /* DefaultTag.swift in Sources */,
 				3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */,
 				3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */,
 				3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */,

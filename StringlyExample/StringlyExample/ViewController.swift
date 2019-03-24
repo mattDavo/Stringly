@@ -19,7 +19,11 @@ let content =
 <t font-style="footnote">Footnote</t>
 <t underline-style="double,patternDash" font-size="20">Testing, yahoo!</t>
 <t font="Helvetica Neue" font-size="20">Testing, yahoo!</t>
+<t font-size="20">You can also redact <r>stuff</r> if you like</t>
+<img src="me"/>
 """
+
+// To insert images and add popovers with control we will need a Stringly format() that takes a UITextView, so that it has total access to it, to get sizes, rects, add subviews, etc.
 
 class ViewController: UIViewController {
 
@@ -31,6 +35,7 @@ class ViewController: UIViewController {
         
         textView.attributedText = content.format()
         
+        // Getting the rect of a string
         let range: NSRange = (textView.text as NSString).range(of: "heading 2")
         let start: UITextPosition? = textView.position(from: textView.beginningOfDocument, offset: range.location)
         let end: UITextPosition? = textView.position(from: start!, offset: range.length)
@@ -40,6 +45,25 @@ class ViewController: UIViewController {
         let v = UIView(frame: rect)
         v.backgroundColor = UIColor.red.withAlphaComponent(0.5)
 //        textView.addSubview(v)
+        
+        
+        
+        
+        
+        // Inserting images
+        let textAttachment = NSTextAttachment()
+        textAttachment.image = UIImage(named: "me")!
+        
+        let oldWidth = textAttachment.image!.size.width;
+        
+        let scaleFactor = oldWidth / (textView.frame.size.width - 10); //for the padding inside the textView
+        let image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
+        textAttachment.image = image
+        let attrStringWithImage = NSAttributedString(attachment: textAttachment)
+        let mut = NSMutableAttributedString(attributedString: textView.attributedText)
+        mut.append(attrStringWithImage)
+//        mut.replaceCharacters(in: NSMakeRange(mut.string.count-1, 1), with: attrStringWithImage)
+//        textView.attributedText = mut;
     }
 }
 

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 import os.log
 
-struct Tag: CustomStringConvertible {
+class Tag: CustomStringConvertible {
     
     private var stringly: Stringly
     

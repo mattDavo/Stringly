@@ -216,24 +216,85 @@ class TagOptionRedactColor: TagOption {
     }
 }
 
-class TagOptionImageSource: TagOption {
+class TextViewTagOptionImageSource: TextViewTagOption {
     
     var key = "src"
     
-    func applyOption(to text: NSMutableAttributedString, withValue value: String) {
+    func applyOption(to text: NSMutableAttributedString, withValue value: String, forTextView textView: UITextView) {
         // Courtesy of https://stackoverflow.com/a/38479284
-        if let image = UIImage(named: "me") {
+        if let image = UIImage(named: value) {
             let textAttachment = NSTextAttachment()
             textAttachment.image = image
             
             let oldWidth = textAttachment.image!.size.width;
             
-//            let scaleFactor = oldWidth / (textView.frame.size.width - 10) //for the padding inside the textView
+            // For the padding inside the textView
+            let scaleFactor = oldWidth / (textView.frame.size.width - 10)
+            let image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
+            textAttachment.image = image
+            let attrStringWithImage = NSAttributedString(attachment: textAttachment)
+            text.append(attrStringWithImage)
+        }
+        else {
+            os_log(.error, "Error: Failed to load image named '%s'.", value)
+        }
+    }
+    
+    func applyOption(to text: NSMutableAttributedString, withValue value: String) {
+        os_log(.error, "Warning: You have used TextViewTagOption with key '%s' but used the Stringly.format(...) with a nil value for the UITextView. For best results provide a value for 'textView'. Attempting to apply option anyway.", key, text)
+        
+        // Courtesy of https://stackoverflow.com/a/38479284
+        if let image = UIImage(named: value) {
+            let textAttachment = NSTextAttachment()
+            textAttachment.image = image
             let image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: 1, orientation: .up)
             textAttachment.image = image
             let attrStringWithImage = NSAttributedString(attachment: textAttachment)
             text.append(attrStringWithImage)
         }
-        
+        else {
+            os_log(.error, "Error: Failed to load image named '%s'.", value)
+        }
+    }
+}
+
+class TagOptionImageOrientation: TagOption {
+    
+    var key = "orientation"
+    
+    let orientations: [String: UIImage.Orientation] = [
+        "down": UIImage.Orientation.down,
+        "downMirrored": UIImage.Orientation.downMirrored,
+        "left": UIImage.Orientation.left,
+        "leftMirrored": UIImage.Orientation.leftMirrored,
+        "right": UIImage.Orientation.right,
+        "rightMirrored": UIImage.Orientation.rightMirrored,
+        "up": UIImage.Orientation.up,
+        "upMirrored": UIImage.Orientation.upMirrored,
+    ]
+    
+    func applyOption(to text: NSMutableAttributedString, withValue value: String) {
+        if let orientation = orientations[value] {
+            // Using: https://stackoverflow.com/a/48196253
+            text.enumerateAttributes(in: text.string.range, options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (object, range, stop) in
+                if object.keys.contains(NSAttributedString.Key.attachment) {
+                    if let attachment = object[NSAttributedString.Key.attachment] as? NSTextAttachment {
+                        if let image = attachment.image {
+                            let newImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: orientation)
+                            attachment.image = newImage
+                            text.replaceCharacters(in: range, with: NSAttributedString(attachment: attachment))
+                        }
+                        else if let image = attachment.image(forBounds: attachment.bounds, textContainer: nil, characterIndex: range.location) {
+                            let newImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: orientation)
+                            attachment.image = newImage
+                            text.replaceCharacters(in: range, with: NSAttributedString(attachment: attachment))
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            os_log(.error, "Failed to completely apply option '%s' to image, because value '%s' is not a valid option. Valid options are: {%s}.", key, value, orientations.keys.map({return "'\($0)'"}).joined(separator: ", "))
+        }
     }
 }

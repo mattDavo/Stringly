@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    func format() -> NSAttributedString {
-        return Stringly.shared.format(text: self)
+    func format(stringly: Stringly = Stringly.shared) -> NSAttributedString {
+        return stringly.format(text: self)
     }
 }

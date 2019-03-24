@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol TagOption {
     
     var key: String { get }
     
     func applyOption(to text: NSMutableAttributedString, withValue value: String)
+}
+
+public protocol TextViewTagOption: TagOption {
+    
+    func applyOption(to text: NSMutableAttributedString, withValue value: String, forTextView textView: UITextView)
+}
+
+extension TextViewTagOption {
+    
+    public func applyOption(to text: NSMutableAttributedString) {
+        // Nothing
+    }
 }

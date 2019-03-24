@@ -28,10 +28,6 @@ public class TagTypeText: TagType {
         super.init(tag: tag, attributes: attributes, options: options)
         
         self.attributes = defaultAttributes + self.attributes
-        self.options += defaultOptions.reduce([String: TagOption](), { (options, option) -> [String: TagOption] in
-            var options = options
-            options[option.key] = option
-            return options
-        })
+        self.options = defaultOptions + self.options
     }
 }

@@ -20,7 +20,8 @@ let content =
 <t underline-style="double,patternDash" font-size="20">Testing, yahoo!</t>
 <t font="Helvetica Neue" font-size="20">Testing, yahoo!</t>
 <t font-size="20">You can also redact <r>stuff</r> if you like</t>
-<img src="me"/>
+
+<img orientation="down" src="me"/>
 """
 
 // To insert images and add popovers with control we will need a Stringly format() that takes a UITextView, so that it has total access to it, to get sizes, rects, add subviews, etc.
@@ -33,7 +34,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        textView.attributedText = content.format()
+//        textView.attributedText = content.format()
+        
+        textView.format(text: content)
         
         // Getting the rect of a string
         let range: NSRange = (textView.text as NSString).range(of: "heading 2")

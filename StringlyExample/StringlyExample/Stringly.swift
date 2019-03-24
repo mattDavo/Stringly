@@ -47,7 +47,7 @@ public class Stringly {
         u: TagTypeText(tag: "u", attributes: [TagAttributeUnderline()], options: []),
         i: TagTypeText(tag: "i", attributes: [TagAttributeItalic()], options: []),
         r: TagType(tag: "r", attributes: [TagAttributeRedacted()], options: [TagOptionRedactColor()]),
-        img: TagType(tag: "img", attributes: [], options: [TagOptionImageSource()])
+        img: TagType(tag: "img", attributes: [], options: [TextViewTagOptionImageSource(), TagOptionImageOrientation()])
     )
     
     func getTagType(withTag tag: String) -> TagType? {
@@ -96,7 +96,7 @@ public class Stringly {
         _customTags[tag.tag] = tag
     }
     
-    public func format(text: String) -> NSAttributedString {
+    public func format(text: String, textView: UITextView? = nil) -> NSAttributedString {
         var i = 0
         let chars = Array(text)
         
@@ -121,7 +121,7 @@ public class Stringly {
                 }
                 
                 // Create tag
-                let tag = Tag(content: String(chars[i+1..<tagEnd]), stringly: self)
+                let tag = Tag(content: String(chars[i+1..<tagEnd]), stringly: self, textView: textView)
                 
                 // Write the stringly blob
                 if blob.count > 0 || currentTags.count > 0 {

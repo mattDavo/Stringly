@@ -13,15 +13,17 @@ import os.log
 class Tag: CustomStringConvertible {
     
     private var stringly: Stringly
+    private var textView: UITextView?
     
     var tag: String
     var options: [String: String]
     
     var content: String
     
-    init(content: String, stringly: Stringly = Stringly.shared) {
+    init(content: String, stringly: Stringly = Stringly.shared, textView: UITextView? = nil) {
         self.content = content
         self.stringly = stringly
+        self.textView = textView
         
         let tagRegex = try? NSRegularExpression(pattern: "^/?(?<tag>\\w+)", options: .caseInsensitive)
         let fieldRegex = try? NSRegularExpression(pattern: "\\S+=\".*?\"", options: .caseInsensitive)
@@ -42,7 +44,7 @@ class Tag: CustomStringConvertible {
     
     func applyAttributes(to text: NSMutableAttributedString) {
         if let tagType = stringly.getTagType(withTag: tag) {
-            tagType.applyStyle(to: text, withOptions: options)
+            tagType.applyStyle(to: text, withOptions: options, toTextView: textView)
         }
         else {
             os_log(.error, "Error: There is no TagType defined in Stringly with the tag '%s'. Cannot correctly apply style to text '%s'", tag, text)

@@ -35,7 +35,7 @@ to get the following result:
 - [x] Cleaner implementation
 - [ ] Customizable link tag
 - [ ] Conditional text redacting
-- [ ] Ability to execute code when a certain range of text is executed.
+- [ ] Ability to execute code when a certain range of text is tapped.
 - [ ] Action tag => tap, hold, drag, etc. will execute certain code.
 - [ ] More info tag, tapping on a link, will show a floating view next to it. Ability to customise default window, or provide custom UIView
 - [ ] Images

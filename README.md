@@ -23,12 +23,18 @@ to get the following result:
 <img src="https://raw.githubusercontent.com/mattDavo/Stringly/master/screenshot.png" width="300"/>
 
 ## TODO
-- [ ] More options for standard tags
+- [x] More options for standard tags
 - [x] Ability to create custom tags
 - [x] Ability to add more attributes to the default tags
 - [x] Ability to add more options to the default tags
 - [x] Cleaner implementation
 - [ ] Customizable link tag
+- [ ] Conditional text redacting
+- [ ] Ability to execute code when a certain range of text is executed.
 - [ ] Action tag => tap, hold, drag, etc. will execute certain code.
 - [ ] More info tag, tapping on a link, will show a floating view next to it. Ability to customise default window, or provide custom UIView
-- [ ] Ability to insert images (see https://stackoverflow.com/a/38479284). And then optionally tap to enlarge?
+- [ ] Images
+  - [x] Ability to insert images (see https://stackoverflow.com/a/38479284).
+  - [ ] Provide image through custom function
+  - [ ] Ability to size images
+  - [ ] Optionally tap to enlarge/execute code (see https://stackoverflow.com/questions/48498366/detect-tap-on-images-attached-in-nsattributedstring-while-uitextview-editing-is)?

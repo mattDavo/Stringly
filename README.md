@@ -6,12 +6,17 @@ Currently you can create a string like so:
 ```Swift
 let content =
 """
-<h1>This is <b size="40">heading</b> 1</h1>
-<h2>This is heading 2</h2>
+<h1>This is <b font-size="40">heading</b> 1</h1>
+<h2>This is <h2 highlight="#ff0000a0">heading 2</h2></h2>
 <h3><u>This is heading 3</u></h3>
 <h4>This is <i>heading</i> 4</h4>
 <h5>This is <h5 color="#ff0000a0">heading</h5> 5</h5>
 <h6>This is heading 6</h6>
+<t font-style="footnote">Footnote</t>
+<t underline-style="double,patternDash" font-size="20">Testing, yahoo!</t>
+<t font="Helvetica Neue" font-size="20">Testing, yahoo!</t>
+<t font-size="20">You can also redact <r>stuff</r> if you like</t>
+<img src="me"/>
 """
 ```
 and format it:
@@ -20,7 +25,7 @@ textView.attributedText = content.format()
 ```
 to get the following result:
 
-<img src="https://raw.githubusercontent.com/mattDavo/Stringly/master/screenshot.png" width="300"/>
+<img src="https://raw.githubusercontent.com/mattDavo/Stringly/master/images/screenshot.png" width="300"/>
 
 ## TODO
 - [x] More options for standard tags

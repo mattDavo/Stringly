@@ -16,7 +16,7 @@ class TagOptionUrlImageSource: AsyncTagOption {
     var waitKey = "img-src"
     
     func applyOption(to text: NSMutableAttributedString, withValue value: String, forTextView textView: UITextView?, onCompletion: @escaping (NSMutableAttributedString) -> ()) {
-        URLSession.shared.dataTask(with: URL(string: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png")!) {
+        URLSession.shared.dataTask(with: URL(string: value)!) {
             (data: Data?, resposnse: URLResponse?, error: Error?) -> Void in
             guard let data = data, error == nil else {
                 // Call the completion handler when you've failed

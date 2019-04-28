@@ -107,8 +107,6 @@ public class Stringly {
         
         var blobs = [StringlyBlob]()
         
-        
-        
         while i < chars.count {
             if chars[i] == "<" {
                 // Get index of end of tag
@@ -118,7 +116,18 @@ public class Stringly {
                 }
                 
                 // Get index of next slash
-                guard let slash = chars.suffix(from: i).firstIndex(of: "/") else {
+                var slash = Int.max
+                let word = String(chars.suffix(from: i))
+                if let range = word.range(of: "</") {
+                    slash = word.distance(from: word.startIndex, to: range.lowerBound) + 1 + i
+                }
+                if let range = word.range(of: "/>") {
+                    if word.distance(from: word.startIndex, to: range.lowerBound) + i < slash {
+                        slash = word.distance(from: word.startIndex, to: range.lowerBound) + i
+                    }
+                }
+                
+                if slash == Int.max {
                     print("ERROR: Invalid XML, could not find closing '/'.")
                     return [StringlyBlob(text: text, tags: [])]
                 }

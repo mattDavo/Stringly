@@ -10,6 +10,7 @@ import UIKit
 
 let content =
 """
+<img url-src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" orientation="up" padding="100" align="center"/>
 <h1 align="center">This is <b font-size="40">heading</b> 1</h1>
 <h2>This is <h2 highlight="#ff0000a0">heading 2</h2></h2>
 <h3><u>This is heading 3</u></h3>
@@ -21,7 +22,7 @@ let content =
 <t font="Helvetica Neue" font-size="20">Testing, yahoo!</t>
 <t font-size="20">You can also redact <r>stuff</r> if you like</t>
 
-<img url-src="" orientation="down" padding="100" align="center"/>
+<img url-src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" orientation="down" padding="100" align="center"/>
 <img orientation="up" src="me" padding="0" align="center"/>
 """
 

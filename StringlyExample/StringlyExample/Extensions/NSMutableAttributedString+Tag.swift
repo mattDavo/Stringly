@@ -11,7 +11,10 @@ import Foundation
 extension NSMutableAttributedString {
     
     func applyTag(_ tag: Tag) {
-        tag.applyAttributes(to: self)
+        tag.apply(to: self)
     }
     
+    func applyTag(_ tag: Tag, onAppliedAsync: @escaping (NSMutableAttributedString) -> ()) {
+        tag.apply(to: self, onAppliedAsync: onAppliedAsync)
+    }
 }

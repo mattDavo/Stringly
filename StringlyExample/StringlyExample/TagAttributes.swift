@@ -17,7 +17,7 @@ class TagAttributeFontSize: TagAttribute {
         self.fontSize = fontSize
     }
     
-    func applyAttribute(to text: NSMutableAttributedString) {
+    func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
         if let font = text.fullRangeAttributes()[.font] as? UIFont {
             text.addAttribute(.font, value: font.withSize(fontSize), range: text.string.range)
         }
@@ -31,7 +31,7 @@ class TagAttributeBold: TagAttribute {
     
     let defaultFontSize: CGFloat = 12
     
-    func applyAttribute(to text: NSMutableAttributedString) {
+    func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
         if let font = text.fullRangeAttributes()[.font] as? UIFont {
             text.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: font.pointSize), range: text.string.range)
         }
@@ -45,7 +45,7 @@ class TagAttributeItalic: TagAttribute {
     
     let defaultFontSize: CGFloat = 12
     
-    func applyAttribute(to text: NSMutableAttributedString) {
+    func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
         if let font = text.fullRangeAttributes()[.font] as? UIFont {
             text.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: font.pointSize), range: text.string.range)
         }
@@ -60,7 +60,7 @@ class TagAttributeUnderline: TagAttribute {
     let defaultUnderlineStyle = NSUnderlineStyle.single.rawValue
     let defaultUnderlineColor = UIColor.black
     
-    func applyAttribute(to text: NSMutableAttributedString) {
+    func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
         if text.fullRangeAttributes()[.underlineStyle] == nil {
             text.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: text.string.range)
         }
@@ -80,8 +80,17 @@ public class TagAttributeRedacted: TagAttribute {
     
     public var defaultColor = UIColor.black
     
-    public func applyAttribute(to text: NSMutableAttributedString) {
+    public func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
         text.addAttribute(.backgroundColor, value: defaultColor, range: text.string.range)
         text.addAttribute(.foregroundColor, value: defaultColor, range: text.string.range)
     }
+}
+
+
+public class TagAttributeTextAttachmentPlaceholder: TagAttribute {
+    
+    public func applyAttribute(to text: NSMutableAttributedString, forTextView textView: UITextView?) {
+        text.append(NSAttributedString(attachment: NSTextAttachment()))
+    }
+    
 }

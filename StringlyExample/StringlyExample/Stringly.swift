@@ -47,7 +47,7 @@ public class Stringly {
         u: TagTypeText(tag: "u", attributes: [TagAttributeUnderline()], options: []),
         i: TagTypeText(tag: "i", attributes: [TagAttributeItalic()], options: []),
         r: TagType(tag: "r", attributes: [TagAttributeRedacted()], options: [TagOptionRedactColor()]),
-        img: TagType(tag: "img", attributes: [], options: [TextViewTagOptionImageSource(), TagOptionImageOrientation()])
+        img: TagType(tag: "img", attributes: [TagAttributeTextAttachmentPlaceholder()], options: [], asyncOptions: [TagOptionImageSource(), TagOptionUrlImageSource()], asyncWaitingOptions: [TagOptionImageOrientation(), TagOptionImagePadding(), TagOptionTextAttachmentAlignment()])
     )
     
     func getTagType(withTag tag: String) -> TagType? {
@@ -96,7 +96,10 @@ public class Stringly {
         _customTags[tag.tag] = tag
     }
     
-    public func format(text: String, textView: UITextView? = nil) -> NSAttributedString {
+    private func getBlobs(forText text: String, withTextView textView: UITextView? = nil) -> [StringlyBlob] {
+        
+        getBlobs2(forText: text)
+        
         var i = 0
         let chars = Array(text)
         
@@ -106,18 +109,20 @@ public class Stringly {
         
         var blobs = [StringlyBlob]()
         
+        
+        
         while i < chars.count {
             if chars[i] == "<" {
                 // Get index of end of tag
                 guard let tagEnd = chars.suffix(from: i).firstIndex(of: ">") else {
                     print("ERROR: Invalid XML, could not find closing '>'.")
-                    return NSAttributedString(string: text)
+                    return [StringlyBlob(text: text, tags: [])]
                 }
                 
                 // Get index of next slash
                 guard let slash = chars.suffix(from: i).firstIndex(of: "/") else {
                     print("ERROR: Invalid XML, could not find closing '/'.")
-                    return NSAttributedString(string: text)
+                    return [StringlyBlob(text: text, tags: [])]
                 }
                 
                 // Create tag
@@ -133,7 +138,7 @@ public class Stringly {
                 if tagEnd < slash {
                     currentTags.append(tag)
                 }
-                // If it's a closing tag, remove it from the stack
+                    // If it's a closing tag, remove it from the stack
                 else if slash == i + 1 {
                     currentTags.removeLast()
                 }
@@ -154,11 +159,72 @@ public class Stringly {
             print("WARNING: Invalid XML")
         }
         
+        return blobs
+    }
+    
+    public func format(text: String, textView: UITextView? = nil) -> NSAttributedString {
+        
+        let blobs = getBlobs(forText: text, withTextView: textView)
+        
         let str = NSMutableAttributedString(string: "")
         
-        for sBlob in blobs {
-            print(sBlob)
-            str.append(sBlob.formattedText)
+        if let textView = textView {
+            for blob in blobs {
+                str.append(blob.formatText(atIndex: str.length) {
+                    (index, newStr) -> Void in
+                    // Do something
+                    let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+                    newText.replaceCharacters(in: NSRange(location: index, length: newStr.length), with: newStr)
+                    textView.attributedText = newText
+                })
+            }
+        }
+        else {
+            for blob in blobs {
+                str.append(blob.formattedText)
+            }
+        }
+        
+        return str
+    }
+    
+    public func format(text: String) -> NSAttributedString {
+        let blobs = getBlobs(forText: text)
+        
+        let str = NSMutableAttributedString(string: "")
+        
+        for blob in blobs {
+            str.append(blob.formattedText)
+        }
+        
+        return str
+    }
+    
+    public func format(text: String, textView: UITextView) -> NSAttributedString {
+        let blobs = getBlobs(forText: text, withTextView: textView)
+        
+        let str = NSMutableAttributedString(string: "")
+        
+        for blob in blobs {
+            str.append(blob.formatText(atIndex: str.length) {
+                (index, newStr) -> Void in
+                // Update the text view
+                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+                newText.replaceCharacters(in: NSRange(location: index, length: newStr.length), with: newStr)
+                textView.attributedText = newText
+            })
+        }
+        
+        return str
+    }
+    
+    public func format(text: String, onAppliedAsync: @escaping (Int, NSMutableAttributedString) -> ()) -> NSAttributedString {
+        let blobs = getBlobs(forText: text, withTextView: nil)
+        
+        let str = NSMutableAttributedString(string: "")
+        
+        for blob in blobs {
+            str.append(blob.formatText(atIndex: str.length, onAppliedAsync: onAppliedAsync))
         }
         
         return str

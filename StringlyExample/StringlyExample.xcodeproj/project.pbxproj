@@ -7,11 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342695842271CE8900AE7F0F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695832271CE8900AE7F0F /* UIImage.swift */; };
+		3426958A22751BF200AE7F0F /* TagOptionFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426958922751BF200AE7F0F /* TagOptionFont.swift */; };
+		3426958C22751C0C00AE7F0F /* TagOptionFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426958B22751C0C00AE7F0F /* TagOptionFontSize.swift */; };
+		3426958E22751C1E00AE7F0F /* TagOptionTextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426958D22751C1E00AE7F0F /* TagOptionTextColor.swift */; };
+		3426959022751C2E00AE7F0F /* TagOptionTextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426958F22751C2E00AE7F0F /* TagOptionTextHighlight.swift */; };
+		3426959222751C4100AE7F0F /* TagOptionFontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959122751C4100AE7F0F /* TagOptionFontStyle.swift */; };
+		3426959422751C5500AE7F0F /* TagOptionUnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959322751C5500AE7F0F /* TagOptionUnderlineStyle.swift */; };
+		3426959622751C6700AE7F0F /* TagOptionUnderlineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959522751C6700AE7F0F /* TagOptionUnderlineColor.swift */; };
+		3426959822751C7B00AE7F0F /* TagOptionStrikethroughStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959722751C7B00AE7F0F /* TagOptionStrikethroughStyle.swift */; };
+		3426959A22751C8E00AE7F0F /* TagOptionStrikethroughColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959922751C8E00AE7F0F /* TagOptionStrikethroughColor.swift */; };
+		3426959C22751C9D00AE7F0F /* TagOptionRedactColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959B22751C9D00AE7F0F /* TagOptionRedactColor.swift */; };
+		3426959E22751CB100AE7F0F /* TagOptionTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959D22751CB100AE7F0F /* TagOptionTextAlignment.swift */; };
+		342695A022751CCF00AE7F0F /* TagOptionImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426959F22751CCF00AE7F0F /* TagOptionImageSource.swift */; };
+		342695A222751CE800AE7F0F /* TagOptionImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695A122751CE800AE7F0F /* TagOptionImageOrientation.swift */; };
+		342695A422751D1400AE7F0F /* TagOptionTextAttachmentAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695A322751D1400AE7F0F /* TagOptionTextAttachmentAlignment.swift */; };
+		342695A622751D3000AE7F0F /* TagOptionImagePadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695A522751D3000AE7F0F /* TagOptionImagePadding.swift */; };
+		342695A922751DE300AE7F0F /* AsyncTagOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695A822751DE300AE7F0F /* AsyncTagOption.swift */; };
+		342695AD22752B1600AE7F0F /* AsyncWaitingTagOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695AC22752B1600AE7F0F /* AsyncWaitingTagOption.swift */; };
+		342695B32275441B00AE7F0F /* TagOptionUrlImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342695B22275441B00AE7F0F /* TagOptionUrlImageSource.swift */; };
 		3440F8F42244665B00285400 /* TagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F32244665B00285400 /* TagType.swift */; };
 		3440F8F62244667C00285400 /* TagAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F52244667C00285400 /* TagAttribute.swift */; };
 		3440F8F82244668F00285400 /* TagOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F72244668E00285400 /* TagOption.swift */; };
 		3440F8FA224466C400285400 /* TagAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8F9224466C400285400 /* TagAttributes.swift */; };
-		3440F8FC224466E700285400 /* TagOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FB224466E700285400 /* TagOptions.swift */; };
 		3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */; };
 		3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */; };
 		344A7DAF22483BB30000D612 /* UITextView+Stringly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A7DAE22483BB30000D612 /* UITextView+Stringly.swift */; };
@@ -52,11 +70,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		342695832271CE8900AE7F0F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3426958922751BF200AE7F0F /* TagOptionFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionFont.swift; sourceTree = "<group>"; };
+		3426958B22751C0C00AE7F0F /* TagOptionFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionFontSize.swift; sourceTree = "<group>"; };
+		3426958D22751C1E00AE7F0F /* TagOptionTextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionTextColor.swift; sourceTree = "<group>"; };
+		3426958F22751C2E00AE7F0F /* TagOptionTextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionTextHighlight.swift; sourceTree = "<group>"; };
+		3426959122751C4100AE7F0F /* TagOptionFontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionFontStyle.swift; sourceTree = "<group>"; };
+		3426959322751C5500AE7F0F /* TagOptionUnderlineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionUnderlineStyle.swift; sourceTree = "<group>"; };
+		3426959522751C6700AE7F0F /* TagOptionUnderlineColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionUnderlineColor.swift; sourceTree = "<group>"; };
+		3426959722751C7B00AE7F0F /* TagOptionStrikethroughStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionStrikethroughStyle.swift; sourceTree = "<group>"; };
+		3426959922751C8E00AE7F0F /* TagOptionStrikethroughColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionStrikethroughColor.swift; sourceTree = "<group>"; };
+		3426959B22751C9D00AE7F0F /* TagOptionRedactColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionRedactColor.swift; sourceTree = "<group>"; };
+		3426959D22751CB100AE7F0F /* TagOptionTextAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionTextAlignment.swift; sourceTree = "<group>"; };
+		3426959F22751CCF00AE7F0F /* TagOptionImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionImageSource.swift; sourceTree = "<group>"; };
+		342695A122751CE800AE7F0F /* TagOptionImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionImageOrientation.swift; sourceTree = "<group>"; };
+		342695A322751D1400AE7F0F /* TagOptionTextAttachmentAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionTextAttachmentAlignment.swift; sourceTree = "<group>"; };
+		342695A522751D3000AE7F0F /* TagOptionImagePadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionImagePadding.swift; sourceTree = "<group>"; };
+		342695A822751DE300AE7F0F /* AsyncTagOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTagOption.swift; sourceTree = "<group>"; };
+		342695AC22752B1600AE7F0F /* AsyncWaitingTagOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWaitingTagOption.swift; sourceTree = "<group>"; };
+		342695B22275441B00AE7F0F /* TagOptionUrlImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptionUrlImageSource.swift; sourceTree = "<group>"; };
 		3440F8F32244665B00285400 /* TagType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagType.swift; sourceTree = "<group>"; };
 		3440F8F52244667C00285400 /* TagAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAttribute.swift; sourceTree = "<group>"; };
 		3440F8F72244668E00285400 /* TagOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOption.swift; sourceTree = "<group>"; };
 		3440F8F9224466C400285400 /* TagAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAttributes.swift; sourceTree = "<group>"; };
-		3440F8FB224466E700285400 /* TagOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOptions.swift; sourceTree = "<group>"; };
 		3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+LosslessStringConvertible.swift"; sourceTree = "<group>"; };
 		344A7DAE22483BB30000D612 /* UITextView+Stringly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Stringly.swift"; sourceTree = "<group>"; };
@@ -110,6 +146,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3426958822751BDF00AE7F0F /* TagOptions */ = {
+			isa = PBXGroup;
+			children = (
+				3426958922751BF200AE7F0F /* TagOptionFont.swift */,
+				3426958B22751C0C00AE7F0F /* TagOptionFontSize.swift */,
+				3426959122751C4100AE7F0F /* TagOptionFontStyle.swift */,
+				3426959B22751C9D00AE7F0F /* TagOptionRedactColor.swift */,
+				3426959922751C8E00AE7F0F /* TagOptionStrikethroughColor.swift */,
+				3426959722751C7B00AE7F0F /* TagOptionStrikethroughStyle.swift */,
+				3426959D22751CB100AE7F0F /* TagOptionTextAlignment.swift */,
+				3426958D22751C1E00AE7F0F /* TagOptionTextColor.swift */,
+				3426958F22751C2E00AE7F0F /* TagOptionTextHighlight.swift */,
+				3426959522751C6700AE7F0F /* TagOptionUnderlineColor.swift */,
+				3426959322751C5500AE7F0F /* TagOptionUnderlineStyle.swift */,
+			);
+			name = TagOptions;
+			path = TagOptions/TagOptions;
+			sourceTree = "<group>";
+		};
+		342695AE22752C6200AE7F0F /* AsyncTagOptions */ = {
+			isa = PBXGroup;
+			children = (
+				3426959F22751CCF00AE7F0F /* TagOptionImageSource.swift */,
+				342695B22275441B00AE7F0F /* TagOptionUrlImageSource.swift */,
+			);
+			path = AsyncTagOptions;
+			sourceTree = "<group>";
+		};
+		342695B122752F0D00AE7F0F /* AsyncWaitingTagOptions */ = {
+			isa = PBXGroup;
+			children = (
+				342695A122751CE800AE7F0F /* TagOptionImageOrientation.swift */,
+				342695A522751D3000AE7F0F /* TagOptionImagePadding.swift */,
+				342695A322751D1400AE7F0F /* TagOptionTextAttachmentAlignment.swift */,
+			);
+			path = AsyncWaitingTagOptions;
+			sourceTree = "<group>";
+		};
 		344ECE6422472B6100C44E6A /* TagTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,17 +222,20 @@
 				3461FA0A223FA82E00E7F886 /* Info.plist */,
 				3461FA07223FA82E00E7F886 /* LaunchScreen.storyboard */,
 				3461FA02223FA82D00E7F886 /* Main.storyboard */,
-				3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */,
 				344E7ED02241036F005F12D4 /* Stringly.swift */,
 				3461FA302240781E00E7F886 /* StringlyBlob.swift */,
 				3461FA2E224077FC00E7F886 /* Tag.swift */,
 				3440F8F52244667C00285400 /* TagAttribute.swift */,
 				3440F8F9224466C400285400 /* TagAttributes.swift */,
 				3440F8F72244668E00285400 /* TagOption.swift */,
-				3440F8FB224466E700285400 /* TagOptions.swift */,
+				3426958822751BDF00AE7F0F /* TagOptions */,
 				3440F8F32244665B00285400 /* TagType.swift */,
 				344ECE6422472B6100C44E6A /* TagTypes */,
 				3461FA00223FA82C00E7F886 /* ViewController.swift */,
+				342695A822751DE300AE7F0F /* AsyncTagOption.swift */,
+				342695AE22752C6200AE7F0F /* AsyncTagOptions */,
+				342695AC22752B1600AE7F0F /* AsyncWaitingTagOption.swift */,
+				342695B122752F0D00AE7F0F /* AsyncWaitingTagOptions */,
 			);
 			path = StringlyExample;
 			sourceTree = "<group>";
@@ -184,6 +261,7 @@
 		34F03092224784F50030E71C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3461FA342240786D00E7F886 /* NSMutableAttributedString+Tag.swift */,
 				3440F8FF22446D7A00285400 /* CGFloat+LosslessStringConvertible.swift */,
 				344ECE5E22472AB600C44E6A /* Dictionary+Operators.swift */,
 				3440F8FD22446B0B00285400 /* NSMutableAttributedString+Attributes.swift */,
@@ -191,6 +269,7 @@
 				3461FA322240783700E7F886 /* String+Stringly.swift */,
 				34ED05352240923F003C5316 /* UIColor+HexString.swift */,
 				344A7DAE22483BB30000D612 /* UITextView+Stringly.swift */,
+				342695832271CE8900AE7F0F /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,22 +406,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				3461FA332240783700E7F886 /* String+Stringly.swift in Sources */,
+				3426958C22751C0C00AE7F0F /* TagOptionFontSize.swift in Sources */,
+				342695AD22752B1600AE7F0F /* AsyncWaitingTagOption.swift in Sources */,
 				3440F8F62244667C00285400 /* TagAttribute.swift in Sources */,
+				342695A422751D1400AE7F0F /* TagOptionTextAttachmentAlignment.swift in Sources */,
 				3461FA2F224077FC00E7F886 /* Tag.swift in Sources */,
+				342695A022751CCF00AE7F0F /* TagOptionImageSource.swift in Sources */,
 				3440F8F82244668F00285400 /* TagOption.swift in Sources */,
 				344E7ED12241036F005F12D4 /* Stringly.swift in Sources */,
+				3426959E22751CB100AE7F0F /* TagOptionTextAlignment.swift in Sources */,
 				3440F8FA224466C400285400 /* TagAttributes.swift in Sources */,
+				3426959022751C2E00AE7F0F /* TagOptionTextHighlight.swift in Sources */,
+				342695842271CE8900AE7F0F /* UIImage.swift in Sources */,
 				3440F8FE22446B0B00285400 /* NSMutableAttributedString+Attributes.swift in Sources */,
 				344ECE5F22472AB600C44E6A /* Dictionary+Operators.swift in Sources */,
+				342695A222751CE800AE7F0F /* TagOptionImageOrientation.swift in Sources */,
+				3426959622751C6700AE7F0F /* TagOptionUnderlineColor.swift in Sources */,
 				3461FA01223FA82C00E7F886 /* ViewController.swift in Sources */,
+				342695B32275441B00AE7F0F /* TagOptionUrlImageSource.swift in Sources */,
 				3461FA352240786D00E7F886 /* NSMutableAttributedString+Tag.swift in Sources */,
 				3440F90022446D7A00285400 /* CGFloat+LosslessStringConvertible.swift in Sources */,
+				342695A622751D3000AE7F0F /* TagOptionImagePadding.swift in Sources */,
 				3461F9FF223FA82C00E7F886 /* AppDelegate.swift in Sources */,
-				3440F8FC224466E700285400 /* TagOptions.swift in Sources */,
+				3426959422751C5500AE7F0F /* TagOptionUnderlineStyle.swift in Sources */,
+				3426958A22751BF200AE7F0F /* TagOptionFont.swift in Sources */,
 				344A7DAF22483BB30000D612 /* UITextView+Stringly.swift in Sources */,
+				3426958E22751C1E00AE7F0F /* TagOptionTextColor.swift in Sources */,
+				3426959822751C7B00AE7F0F /* TagOptionStrikethroughStyle.swift in Sources */,
+				342695A922751DE300AE7F0F /* AsyncTagOption.swift in Sources */,
 				344ECE6122472B3200C44E6A /* TagTypeHeading.swift in Sources */,
+				3426959222751C4100AE7F0F /* TagOptionFontStyle.swift in Sources */,
 				3461FA2D224077E000E7F886 /* String+Regex.swift in Sources */,
+				3426959A22751C8E00AE7F0F /* TagOptionStrikethroughColor.swift in Sources */,
 				34ED05362240923F003C5316 /* UIColor+HexString.swift in Sources */,
+				3426959C22751C9D00AE7F0F /* TagOptionRedactColor.swift in Sources */,
 				3440F8F42244665B00285400 /* TagType.swift in Sources */,
 				3461FA312240781E00E7F886 /* StringlyBlob.swift in Sources */,
 				344ECE6322472B4900C44E6A /* TagTypeText.swift in Sources */,
@@ -523,6 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HY8YZ2D6M7;
 				INFOPLIST_FILE = StringlyExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,6 +639,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HY8YZ2D6M7;
 				INFOPLIST_FILE = StringlyExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

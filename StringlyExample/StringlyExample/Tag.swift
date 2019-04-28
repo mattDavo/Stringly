@@ -42,12 +42,12 @@ class Tag: CustomStringConvertible {
         return "<\(content)>"
     }
     
-    func applyAttributes(to text: NSMutableAttributedString) {
+    func apply(to text: NSMutableAttributedString, onAppliedAsync: ((NSMutableAttributedString) -> ())? = nil) {
         if let tagType = stringly.getTagType(withTag: tag) {
-            tagType.applyStyle(to: text, withOptions: options, toTextView: textView)
+            tagType.applyStyle(to: text, withOptions: options, toTextView: textView, onAppliedAsync: onAppliedAsync)
         }
         else {
-            os_log(.error, "Error: There is no TagType defined in Stringly with the tag '%s'. Cannot correctly apply style to text '%s'", tag, text)
+            os_log("Error: There is no TagType defined in Stringly with the tag '%s'. Cannot apply style to text '%s'", log: .default, type: .error, tag, text.string)
         }
     }
 }

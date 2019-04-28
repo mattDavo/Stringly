@@ -21,7 +21,8 @@ public class TagTypeText: TagType {
         TagOptionUnderlineStyle(),
         TagOptionUnderlineColor(),
         TagOptionStrikethroughStyle(),
-        TagOptionStrikethroughColor()
+        TagOptionStrikethroughColor(),
+        TagOptionTextAlignment()
     ]
     
     override init(tag: String, attributes: [TagAttribute], options: [TagOption]) {

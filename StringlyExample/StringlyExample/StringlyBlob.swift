@@ -13,18 +13,15 @@ class StringlyBlob: CustomStringConvertible {
     
     private var tags = [Tag]()
     
-    private var _formattedText: NSAttributedString!
-    
     var text: String
     
     var formattedText: NSAttributedString {
-        return _formattedText
+        return getFormattedText()
     }
     
     init(text: String, tags: [Tag]) {
         self.text = text
         self.tags = tags
-        self._formattedText = self.getFormattedText()
     }
     
     func addTag(_ tag: Tag) {
@@ -41,6 +38,19 @@ class StringlyBlob: CustomStringConvertible {
         
         for tag in tags {
             formattedText.applyTag(tag)
+        }
+        
+        return formattedText
+    }
+    
+    public func formatText(atIndex index: Int, onAppliedAsync: @escaping (Int, NSMutableAttributedString) -> ()) -> NSAttributedString {
+        let formattedText = NSMutableAttributedString(string: text)
+        formattedText.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: text.range)
+        
+        for tag in tags {
+            tag.apply(to: formattedText) { (newText) in
+                onAppliedAsync(index, newText)
+            }
         }
         
         return formattedText

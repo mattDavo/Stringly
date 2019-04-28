@@ -98,8 +98,6 @@ public class Stringly {
     
     private func getBlobs(forText text: String, withTextView textView: UITextView? = nil) -> [StringlyBlob] {
         
-        getBlobs2(forText: text)
-        
         var i = 0
         let chars = Array(text)
         

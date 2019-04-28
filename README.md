@@ -30,7 +30,7 @@ to get the following result:
 
 <img src="https://raw.githubusercontent.com/mattDavo/Stringly/master/images/screenshot.png" width="300"/>
 
-As you will notice there is images that are sourced from urls. This functionality is possible by loading the images asynchronously then as the jobs finish the attributedText of the UITextView is updated to show the images.
+As you will notice there are images that are sourced from urls. This functionality is possible by loading the images asynchronously then as the jobs finish the attributedText of the UITextView is updated to show the images.
 
 ## TODO
 - [x] More options for standard tags
